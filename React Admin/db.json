@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "My First Post",
+      "body": "This is the post body",
+      "publishedAt": "2022-08-07"
+    },
+    {
+      "id": "2",
+      "title": "My Second Post",
+      "body": "This is the post body",
+      "publishedAt": "2022-07-25"
+    },
+    {
+      "id": "3",
+      "title": "My second Post",
+      "body": "This is the post body",
+      "publishedAt": "2022-07-17"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Luis Rodrigues",
+      "email": "contact@hiremail.com"
+    }
+  ]
+}
