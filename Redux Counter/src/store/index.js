@@ -1,39 +1,36 @@
-import { createStore } from 'redux';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const initialState = { counter: 0, showCounter: true };
+//preparing a slice of our global state
+const counterSlice = createSlice({
+  //slice identifier
+  name: 'counter',
+  //initiate the state
+  initialState: initialState,
+  //reducers 'methods' the slice need
+  reducers: {
+    increment(state) {
+      //we are allow to mutate the state!!
+      //toolkit automatically clones the current state and create a new state object
+      state.counter++;
+    },
+    decrement(state) {
+      state.counter--;
+    },
+    increase(state, action) {
+      state.counter = state.counter + action.payload;
+    },
+    toggleCounter(state) {
+      state.showCounter = !state.showCounter;
+    },
+  },
+});
 
-const counterReducer = (state = initialState, action) => {
-  if (action.type === 'increment') {
-    //never mutate the state IMPORTANT you need to override returning a brand new state
-    return {
-      counter: state.counter + 1,
-      // even though we dont manipulate showCounter we do need to return it
-      // redux always replaces the current state
-      //we must always set all the other states whenever we update any state because we override all the state
-      showCounter: state.showCounter,
-    };
-  }
-  if (action.type === 'increase') {
-    return {
-      counter: state.counter + action.amount,
-      showCounter: state.showCounter,
-    };
-  }
-  if (action.type === 'decrement') {
-    return {
-      counter: state.counter - 1,
-      showCounter: state.showCounter,
-    };
-  }
-  if (action.type === 'toggle') {
-    return {
-      showCounter: !state.showCounter,
-      counter: state.counter,
-    };
-  }
-  return state;
-};
+//you get access to the reducers set on slice
+const store = configureStore({
+  reducer: counterSlice.reducer, //with only one reducer
+  // reducer: { counter: counterSlice.reducer },// if you have more slice just add in the object
+});
 
-const store = createStore(counterReducer);
-
+export const counterActions = counterSlice.actions;
 export default store;

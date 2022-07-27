@@ -1,6 +1,9 @@
 # Redux
 
 - Simple Counter with [Redux](https://redux.js.org/) Library and [React Reedux](https://react-redux.js.org/) which makes connecting react apps to redux stores and reducers simpler
+- Redux [Toolkit](https://redux-toolkit.js.org/) later implemented. Previous warning: @deprecated
+  We recommend using the configureStore method of the @reduxjs/toolkit package, which replaces createStore.
+- You can uninstall redux package after installing Redux Toolkit
 
 ## Functional Component
 
@@ -8,7 +11,7 @@
 
         import { createStore } from 'redux';
         const initialState = { counter: 0, showCounter: true };
-        
+
         const counterReducer = (state = initialState, action) => {
                 if (action.type === 'increment') {
                         return {
@@ -17,8 +20,8 @@
                          };
                 }
 
-- Provide redux store to the react app. In src/index.js  
-  
+- Provide redux store to the react app. In src/index.js
+
         import {Provider} from 'react-redux'
         import store from './store/index'
 
@@ -28,7 +31,6 @@
 
         import {useSelector} from 'react-redux'
         const counter = useSelector((state) => state.counter);
-
 
 - Dispatch an action against our Redux store
 
@@ -45,12 +47,9 @@
         }
         <button onClick={increaseHandler}>Increase by 5</button>
 
-
-
 ## Class Component
 
 - Check components/CounterClass.js
-
 
 ## Run
 

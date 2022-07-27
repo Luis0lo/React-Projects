@@ -1,26 +1,30 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { counterActions } from '../store/index';
 import classes from './Counter.module.css';
 
 const Counter = () => {
+  //give us back a dispatch function which we can execute
   const dispatch = useDispatch();
+
+  const incrementHandler = () => {
+    // the identifier type is coming from your redux store
+    // afterward you need to add your function to the respective button
+    dispatch({ type: 'increment' });
+  };
+  const decrementHandler = () => {
+    dispatch({ type: 'decrement' });
+  };
+  const increaseHandler = () => {
+    dispatch({ type: 'increase', amount: 5 });
+  };
+
+  //react-redux automatically setup a subscription to the redux store for this component
+  //component will be updated and receive the latest counter automatically whenever the data changes in the redux store
   const counter = useSelector((state) => state.counter);
   const show = useSelector((state) => state.showCounter);
 
-  const incrementHandler = () => {
-    dispatch(counterActions.increment());
-  };
-  const decrementHandler = () => {
-    dispatch(counterActions.decrement());
-  };
-  const increaseHandler = () => {
-    dispatch(counterActions.increase(5));
-    //{type: UNIQUE_IDENTIFIER, payload: 10} //payload is a default name from toolkit to be used in the store
-  };
-
   const toggleCounterHandler = () => {
-    dispatch(counterActions.toggleCounter());
+    dispatch({ type: 'toggle' });
   };
 
   return (
