@@ -1,7 +1,7 @@
 # Redux
 
 - Simple Counter with [Redux](https://redux.js.org/) Library and [React Reedux](https://react-redux.js.org/) which makes connecting react apps to redux stores and reducers simpler
-- Redux [Toolkit](https://redux-toolkit.js.org/) later implemented. Previous warning: @deprecated
+- [Redux Toolkit](https://redux-toolkit.js.org/) later implemented. Previous warning: @deprecated
   We recommend using the configureStore method of the @reduxjs/toolkit package, which replaces createStore.
 - You can uninstall redux package after installing Redux Toolkit
 
