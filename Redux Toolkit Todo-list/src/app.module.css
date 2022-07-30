@@ -1,5 +1,4 @@
 .container {
-  margin: 3rem ;
-  text-align: center;
+  background-color: rgba(128, 128, 128, 0.269);
+  height: 100vh;
 }
-
