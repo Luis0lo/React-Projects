@@ -1,14 +1,17 @@
 import Header from './components/Header';
-import css from './app.module.css';
 import Input from './components/Input';
 import List from './components/List';
+import css from './app.module.css';
+
 
 function App() {
   return (
     <div className={css.container}>
-      <Header/>
-      <Input/>
-      <List/>
+      <Header />
+      <div className={css.wrapper}>
+        <Input />
+        <List />
+      </div>
     </div>
   );
 }

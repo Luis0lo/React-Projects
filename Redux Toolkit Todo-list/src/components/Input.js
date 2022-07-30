@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { listActions } from '../store/todosRedux';
+import css from './input.module.css'
 
 const Input = () => {
   const [input, setInput] = useState('');
@@ -13,7 +14,7 @@ const Input = () => {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <form onSubmit={addHandler}>
         <input
           type="text"
