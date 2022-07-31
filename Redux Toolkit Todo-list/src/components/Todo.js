@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { listActions } from '../store/todosRedux';
+import css from './todo.module.css';
 
 const Todo = ({ todo }) => {
   const dispatch = useDispatch();
@@ -9,9 +10,12 @@ const Todo = ({ todo }) => {
   };
 
   return (
-    <li key={todo}>
-      {todo} <button onClick={() => removeHandler(todo)}>X</button>
-    </li>
+    <div className={css.container}>
+      <li key={todo} className={css.item}>
+        {todo}
+      </li>
+      <button onClick={() => removeHandler(todo)}>X</button>
+    </div>
   );
 };
 
