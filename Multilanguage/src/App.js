@@ -1,10 +1,16 @@
-import './App.css';
+import React from 'react';
+
+import { LanguageProvider } from './containers/Language';
+
+import LanguageSelector from './components/LanguageSelector';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Multilanguage page</h1>{' '}
-    </div>
+    <LanguageProvider>
+      <div className="App">
+        <LanguageSelector />
+      </div>
+    </LanguageProvider>
   );
 }
 
